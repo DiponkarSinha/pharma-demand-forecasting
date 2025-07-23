@@ -14,3 +14,11 @@ This project builds a time series forecasting model to predict pharmaceutical de
 1. Clone the repository:
    ```bash
    git clone https://github.com/<your-username>/Pharma-Demand-Forecasting.git
+
+   # 💊 Pharma Forecasting App
+
+This is a Streamlit app that forecasts pharmaceutical sales using Prophet.
+
+🔗 **[Click here to launch the app](https://pharma-forecasting-app.streamlit.app)**
+
+---
