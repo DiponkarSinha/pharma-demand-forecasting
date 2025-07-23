@@ -1,0 +1,10 @@
+pandas>=2.0.0
+prophet>=1.1.0
+boto3>=1.26.0
+matplotlib>=3.5.0
+jupyter>=1.0.0
+pandas>=2.0.0
+prophet>=1.1.0
+boto3>=1.26.0
+matplotlib>=3.5.0
+jupyter>=1.0.0
