@@ -1,10 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 def create_tableau_visualization(forecast_path):
     """
     Simulate Tableau visualization by generating a Matplotlib plot.
-    In production, this would connect to Tableau Server for dashboard creation.
+    Saves the plot in the same directory as the input CSV.
     """
     # Load forecast data
     forecast = pd.read_csv(forecast_path)
@@ -19,13 +20,13 @@ def create_tableau_visualization(forecast_path):
     plt.xlabel('Date')
     plt.ylabel('Sales')
     plt.legend()
-    plt.savefig('data/forecast_plot.png')
-    plt.close()
-    print("Visualization saved to data/forecast_plot.png")
 
-    # Placeholder for Tableau integration
-    print("Tableau integration: In production, upload 'forecast_output.csv' to Tableau Server.")
-    print("Create a dashboard with time series plots and metrics.")
+    # ✅ Save to the same folder as the forecast CSV
+     # Save plot
+    plot_path = os.path.join(os.path.dirname(forecast_path), 'forecast_plot.png')
+    os.makedirs(os.path.dirname(plot_path), exist_ok=True)
+    plt.savefig(plot_path)
 
-if __name__ == "__main__":
-    create_tableau_visualization('data/forecast_output.csv')
+
+
+    print(f"✅ Visualization saved to {plot_path}")

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .line-actual { stroke: steelblue; stroke-width: 2; }
+        .line-forecast { stroke: orange; stroke-width: 2; stroke-dasharray: 5,5; }
+        .dot-actual { fill: steelblue; }
+        .dot-forecast { fill: orange; }
+    </style>
+</head>
+<body>
+    <svg width="800" height="400"></svg>
+    <script>
+        d3.csv('../data/d3_data.csv').then(function(data) {
+            data.forEach(d => {
+                d.ds = d3.timeParse('%Y-%m-%d')(d.ds);
+                d.value = +d.value;
+            });
+
+            const margin = {top: 20, right: 20, bottom: 30, left: 50};
+            const width = 800 - margin.left - margin.right;
+            const height = 400 - margin.top - margin.bottom;
+
+            const svg = d3.select('svg')
+                .append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const x = d3.scaleTime()
+                .domain(d3.extent(data, d => d.ds))
+                .range([0, width]);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.value)])
+                .range([height, 0]);
+
+            svg.append('g')
+                .attr('transform', `translate(0,${height})`)
+                .call(d3.axisBottom(x));
+
+            svg.append('g')
+                .call(d3.axisLeft(y));
+
+            const line = d3.line()
+                .x(d => x(d.ds))
+                .y(d => y(d.value));
+
+            const dataByType = d3.group(data, d => d.type);
+
+            svg.selectAll('.line')
+                .data(dataByType)
+                .enter()
+                .append('path')
+                .attr('class', d => `line-${d[0]}`)
+                .attr('d', d => line(d[1]));
+
+            svg.selectAll('.dot')
+                .data(data)
+                .enter()
+                .append('circle')
+                .attr('class', d => `line-${d.type}`)
+                .attr('cx', d => x(d.ds))
+                .attr('cy', d => y(d.value))
+                .attr('r', 3);
+        });
+    </script>
+</body>
+</html>
+    
