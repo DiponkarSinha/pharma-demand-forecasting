@@ -1,125 +1,101 @@
-Pharmaceutical Demand Forecasting
+💊 Pharmaceutical Demand Forecasting
+Live Demo: Pharma Forecasting App
 
-A machine learning project to forecast pharmaceutical demand using the Prophet library, with a pipeline simulating data extraction, cleaning, modeling, evaluation, and visualization. The project demonstrates skills in time series forecasting, data preprocessing, cloud integration, and interactive visualizations.
+A machine learning project to forecast pharmaceutical demand using synthetic data and Meta's Prophet library. The pipeline simulates real-world data workflows including data generation, preprocessing, time series modeling, cloud deployment, and interactive visualization using Streamlit and D3.js.
 
-Project Description
+🚀 Project Overview
+This project replicates a professional ML pipeline tailored for the pharmaceutical supply chain. It simulates how organizations can use data science to anticipate drug demand and optimize inventory.
 
-This project builds an end-to-end workflow for forecasting pharmaceutical demand, replicating a professional data science pipeline:
+🔍 Key Highlights
+📊 Synthetic Dataset: Emulates SAP S/4HANA sales data for monthly pharmaceutical sales.
 
+🧹 Data Preprocessing: Cleaned using pandas, simulating AWS Glue transformations.
 
+📈 Forecasting Model: Built with Meta's Prophet, a robust time series forecasting tool.
 
+✅ Evaluation Metrics: MAE, MSE, RMSE for regression and F1-score for binary demand classification.
 
+☁️ Cloud Simulation: Mimics AWS SageMaker for deployment readiness.
 
-Data Source: Synthetic dataset mimicking SAP S/4HANA sales data, representing monthly pharmaceutical sales.
+📉 Visualization: D3.js-powered visuals embedded in a user-friendly Streamlit app.
 
+🧪 Try It Yourself
+🔗 Launch the App:
+https://pharma-forecasting-app.streamlit.app/
 
+Interact with the model, select forecast ranges, and view dynamic charts powered by D3.js and Streamlit.
 
-Preprocessing: Data cleaning and transformation using Pandas, simulating AWS Glue jobs.
-
-
-
-Modeling: Time series forecasting using Meta's Prophet library.
-
-
-
-Evaluation: Model performance assessed using Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), and F1 score (for binary classification of demand).
-
-
-
-Deployment: Simulated AWS SageMaker deployment for model hosting.
-
-
-
-Visualization: Interactive visualizations using D3.js, integrated into a Streamlit app.
-
-
-
-Application: A Streamlit app for user-friendly forecasting and visualization of pharmaceutical demand.
-
-Demo
-
-Try the deployed Streamlit app to interact with the forecasting model and view visualizations:
-
-🔗 Pharma Forecasting App
-
-Setup Instructions
-
-
-
-
-
-Clone the Repository:
-
+⚙️ Setup Instructions
+1. Clone the Repository
+bash
+Copy
+Edit
 git clone https://github.com/DiponkarSinha/pharma-demand-forecasting.git
 cd pharma-demand-forecasting
+2. Install Dependencies
+Ensure Python 3.8+ is installed. Then install all required libraries:
 
-
-
-Install Dependencies: Ensure Python 3.8+ is installed. Then, install required packages:
-
+bash
+Copy
+Edit
 pip install -r requirements.txt
+Dependencies: pandas, prophet, streamlit, numpy, scikit-learn
 
-Dependencies: pandas, prophet, streamlit, numpy, scikit-learn.
+3. Prepare the Data
+Place your dataset in the /data folder. The expected format is:
 
+csv
+Copy
+Edit
+| ds        | y       |
+|-----------|---------|
+| 2022-01-01| 1534.23 |
+| 2022-02-01| 1589.40 |
+Use sample_demand_data.csv for testing.
 
-
-Run the Streamlit App Locally: Launch the app to interact with the forecasting model and view D3.js visualizations:
-
+4. Run the App Locally
+bash
+Copy
+Edit
 streamlit run app.py
+5. Run the Full Workflow in Jupyter
+Open the notebook to explore the full data science process:
 
-
-
-
-
-Data Preparation: Place the synthetic dataset (sample_demand_data.csv) in the data/ directory. The dataset should have columns ds (date) and y (demand).
-
-
-
-Run the Notebook: The Jupyter notebook (notebooks/demand_forecasting.ipynb) contains the full workflow:
-
-
-
-
-
-Preprocessing, training, evaluation, AWS simulation, and visualization. Run it using:
-
+bash
+Copy
+Edit
 jupyter notebook notebooks/demand_forecasting.ipynb
+📊 Visualizations
+The app includes interactive charts:
 
-Visualization
+Line chart of historical vs. forecasted demand
 
-Interactive visualizations are implemented using D3.js, showing:
+Powered by D3.js, rendered from visualizations/d3_visualization.html
 
-
-
-
-
-Historical vs. forecasted demand as line charts.
-
-
-
-
-The D3.js visualization is generated in visualizations/d3_visualization.html and embedded in the Streamlit app.
-
-Project Structure
-
+🗂️ Project Structure
+bash
+Copy
+Edit
 pharma-demand-forecasting/
 ├── data/
-│   ├── sample_demand_data.csv
-│   ├── cleaned_demand_data.csv
-│   ├── forecast_output.csv
-│   └── d3_data.csv
+│   ├── sample_demand_data.csv        # Input dataset
+│   ├── cleaned_demand_data.csv       # After preprocessing
+│   ├── forecast_output.csv           # Prophet output
+│   └── d3_data.csv                   # Formatted for D3.js
 ├── src/
-│   ├── data_preprocessing.py
-│   ├── model_training.py
-│   └── aws_integration.py
+│   ├── data_preprocessing.py         # Data cleaning functions
+│   ├── model_training.py             # Prophet training logic
+│   └── aws_integration.py            # SageMaker simulation script
 ├── visualizations/
-│   └── d3_visualization.html
+│   └── d3_visualization.html         # Embedded D3.js chart
 ├── notebooks/
-│   └── demand_forecasting.ipynb
-├── app.py
-├── requirements.txt
-└── README.md
+│   └── demand_forecasting.ipynb      # Full ML pipeline
+├── app.py                            # Streamlit app
+├── requirements.txt                  # Dependencies
+└── README.md                         # You're here!
+📜 License
+This project is licensed under the MIT License.
 
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+🙋‍♂️ Contact
+Diponkar Sinha
+LinkedIn • GitHub
